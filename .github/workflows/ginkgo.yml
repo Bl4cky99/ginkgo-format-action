@@ -41,7 +41,7 @@ jobs:
         continue-on-error: true
 
       - name: Format report
-        uses: Bl4cky99/ginkgo-format-action@v1.0.1
+        uses: Bl4cky99/ginkgo-format-action@v1.0.2
         with:
           report-path: report.json
           title: ${{ inputs.title }}
