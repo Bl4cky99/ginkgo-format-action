@@ -47,4 +47,4 @@ outputs:
 
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/bl4cky99/ginkgo-format-action:v1'
+  image: 'docker://ghcr.io/bl4cky99/ginkgo-format-action:1.0.1'
