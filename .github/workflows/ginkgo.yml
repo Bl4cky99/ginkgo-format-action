@@ -1,0 +1,51 @@
+name: Ginkgo Tests
+
+on:
+  workflow_call:
+    inputs:
+      packages:
+        description: 'Go package pattern(s) to test (e.g. ./internal/... or ./...)'
+        type: string
+        required: false
+        default: './...'
+      title:
+        description: 'Report title shown in the step summary'
+        type: string
+        required: false
+        default: 'Test Results'
+      go-version-file:
+        description: 'Path to the go.mod file used to determine the Go version'
+        type: string
+        required: false
+        default: 'go.mod'
+
+jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: ${{ inputs.go-version-file }}
+
+      - name: Install Ginkgo CLI
+        run: go install github.com/onsi/ginkgo/v2/ginkgo@latest
+
+      - name: Run tests
+        id: tests
+        run: ginkgo --json-report=report.json ${{ inputs.packages }}
+        continue-on-error: true
+
+      - name: Format report
+        uses: Bl4cky99/ginkgo-format-action@v1.0.1
+        with:
+          report-path: report.json
+          title: ${{ inputs.title }}
+
+      - name: Fail if tests failed
+        if: steps.tests.outcome == 'failure'
+        run: exit 1
