@@ -1,0 +1,50 @@
+name: 'Ginkgo Format Action'
+description: 'Renders Ginkgo JSON test reports as GitHub Actions step summary'
+author: 'Bl4cky99'
+branding:
+  icon: 'check-circle'
+  color: 'green'
+
+inputs:
+  report-path:
+    description: 'Path to the Ginkgo JSON report file (relative to GITHUB_WORKSPACE or absolute)'
+    required: false
+    default: 'report.json'
+  fail-on-failures:
+    description: 'Exit with code 1 if any tests failed'
+    required: false
+    default: 'false'
+  title:
+    description: 'Heading title rendered above the summary'
+    required: false
+    default: 'Ginkgo Test Results'
+  show-breakdown:
+    description: 'Render the per-suite breakdown table'
+    required: false
+    default: 'true'
+  show-failure-details:
+    description: 'Render expanded <details> blocks for each failing spec'
+    required: false
+    default: 'true'
+  max-failure-details:
+    description: 'Maximum number of failure detail blocks to render (0 = unlimited)'
+    required: false
+    default: '0'
+
+outputs:
+  total:
+    description: 'Total number of specs'
+  passed:
+    description: 'Number of passed specs'
+  failed:
+    description: 'Number of failed specs'
+  skipped:
+    description: 'Number of skipped specs'
+  pending:
+    description: 'Number of pending specs'
+  succeeded:
+    description: 'true if no specs failed, false otherwise'
+
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/bl4cky99/ginkgo-format-action:v1'
