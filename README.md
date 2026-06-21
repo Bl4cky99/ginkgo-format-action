@@ -58,7 +58,7 @@ Run Ginkgo with `--json-report` to produce the report, then pass it to this acti
   run: ginkgo --json-report=report.json ./...
 
 - name: Format Ginkgo report
-  uses: Bl4cky99/ginkgo-format-action@v1
+  uses: Bl4cky99/ginkgo-format-action@v1.0.1
   with:
     report-path: report.json
 ```
@@ -106,7 +106,7 @@ Run Ginkgo with `--json-report` to produce the report, then pass it to this acti
   continue-on-error: true   # let the formatter always run
 
 - name: Format Ginkgo report
-  uses: Bl4cky99/ginkgo-format-action@v1
+  uses: Bl4cky99/ginkgo-format-action@v1.0.1
   with:
     report-path: report.json
     fail-on-failures: "true"
@@ -121,7 +121,7 @@ Run Ginkgo with `--json-report` to produce the report, then pass it to this acti
 When a suite has many failures, rendering all of them can produce a very long summary. Cap it with `max-failure-details`:
 
 ```yaml
-- uses: Bl4cky99/ginkgo-format-action@v1
+- uses: Bl4cky99/ginkgo-format-action@v1.0.1
   with:
     report-path: report.json
     max-failure-details: "10"
@@ -136,7 +136,7 @@ A `> [!NOTE]` callout is appended when the limit is reached, telling the reader 
 ```yaml
 - name: Format Ginkgo report
   id: ginkgo
-  uses: Bl4cky99/ginkgo-format-action@v1
+  uses: Bl4cky99/ginkgo-format-action@v1.0.1
   with:
     report-path: report.json
 
@@ -156,7 +156,7 @@ Run Ginkgo recursively and collect all suite results into a single JSON report:
 - name: Run all tests
   run: ginkgo --json-report=report.json -r ./...
 
-- uses: Bl4cky99/ginkgo-format-action@v1
+- uses: Bl4cky99/ginkgo-format-action@v1.0.1
   with:
     report-path: report.json
     title: "Full Test Suite"
