@@ -7,9 +7,9 @@
     A GitHub Action that turns <b>Ginkgo JSON test reports</b> into a rich GitHub Actions step summary —<br />
     with per-suite breakdown, expandable failure details and structured outputs.
     <br /><br />
-    <a href="https://github.com/Bl4cky99/ginkgo-format-action/issues/new?template=bug_report.yml">Report Bug</a>
+    <a href="https://github.com/Bl4cky99/ginkgo-format-action/issues/new?template=bug_report.yaml">Report Bug</a>
     &middot;
-    <a href="https://github.com/Bl4cky99/ginkgo-format-action/issues/new?template=feature_request.yml">Request Feature</a>
+    <a href="https://github.com/Bl4cky99/ginkgo-format-action/issues/new?template=feature_request.yaml">Request Feature</a>
     <br /><br />
   </p>
 </div>
